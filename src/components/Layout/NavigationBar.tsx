@@ -19,7 +19,7 @@ const NavigationBar: React.FC<NavigationBarProps> = ({
       ) : (
         <div className="p-5"></div>
       )}
-      <h1>NavigationBar</h1>
+      <h1> Navigation Bar</h1>
     </nav>
   );
 };
