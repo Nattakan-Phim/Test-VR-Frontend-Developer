@@ -1,6 +1,7 @@
+"use client"
 import { Button } from "@mui/material";
 import Link from "next/link";
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 interface SidebarProps {
   isOpen: boolean;
@@ -13,6 +14,16 @@ const SideBar: React.FC<SidebarProps> = ({
   toggleSidebar,
   children,
 }) => {
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) {
+    return null;
+  }
+
   return (
     <div className="flex w-screen h-screen">
       {/* Sidebar */}
@@ -23,12 +34,8 @@ const SideBar: React.FC<SidebarProps> = ({
       >
         <div className="flex justify-end px-5 py-5">
           {isOpen ? (
-            <Button
-              onClick={toggleSidebar}
-              variant="contained"
-              
-            >
-            Close
+            <Button onClick={toggleSidebar} variant="contained">
+              Close
             </Button>
           ) : (
             <div className="p-7"></div>
@@ -37,36 +44,28 @@ const SideBar: React.FC<SidebarProps> = ({
 
         {/* Logo */}
         <div>
-          <h1
-            className={`text-lg font-bold text-center p-5`}
-          >
+          <h1 className={`text-lg font-bold text-center p-5`}>
             <Link href={"/"}>LOGO</Link>
           </h1>
         </div>
         {/* Sidebar item*/}
         <div className="">
           <div className="p-4">
-            <h2
-              className={`text-lg font-bold`}
-            >
-              Item 1
-            </h2>
-            <ul
-              className={`m-2 flex flex-col gap-4`}
-            >
+            <h2 className={`text-lg font-bold`}>Item 1</h2>
+            <ul className={`m-2 flex flex-col gap-4`}>
               <Button
-                href={"/"}
+                href={"/pages/todo"}
                 className="flex items-center gap-2 hover:border-2 rounded-xl hover:border-gray-400"
                 variant="contained"
               >
-                Dashboard
+                Todo List
               </Button>
               <Button
-                href={"/#"}
+                href={"/pages/movie"}
                 className="flex items-center gap-2 hover:border-2 rounded-xl hover:border-gray-400"
                 variant="contained"
               >
-                Document
+                Movies
               </Button>
               <Button
                 href={"/#"}
@@ -81,38 +80,6 @@ const SideBar: React.FC<SidebarProps> = ({
                 variant="contained"
               >
                 about
-              </Button>
-            </ul>
-          </div>
-          <div className="p-4">
-            <h2
-              className={`text-lg font-bold`}
-            >
-              Item 2
-            </h2>
-            <ul
-              className={`m-2 flex flex-col gap-2`}
-            >
-              <Button
-                href={"/#"}
-                className="flex items-center gap-2 hover:border-2 rounded-xl hover:border-gray-400"
-                variant="contained"
-              >
-                About
-              </Button>
-              <Button
-                href={"/#"}
-                className="flex items-center gap-2 hover:border-2 rounded-xl hover:border-gray-400"
-                variant="contained"
-              >
-                Setting
-              </Button>
-              <Button
-                href={"/#"}
-                className="flex items-center gap-2 hover:border-2 rounded-xl hover:border-gray-400"
-                variant="contained"
-              >
-                Logout
               </Button>
             </ul>
           </div>
