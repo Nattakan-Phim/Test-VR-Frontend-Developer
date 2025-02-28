@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   Container,
   TextField,
@@ -18,21 +18,25 @@ interface Todo {
 }
 
 export default function Home() {
-  
-  const [todos, setTodos] = useState<Todo[]>(() => {
-    if (typeof window !== "undefined") {
-      const savedTodos = localStorage.getItem("todos");
-      return savedTodos ? JSON.parse(savedTodos) : [];
-    }
-    return [];
-  });
+  const [todos, setTodos] = useState<Todo[]>([]);
   const [newTodo, setNewTodo] = useState<string>("");
   const [editIndex, setEditIndex] = useState<number | null>(null);
   const [editTodo, setEditTodo] = useState<string>("");
 
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const savedTodos = localStorage.getItem("todos");
+      if (savedTodos) {
+        setTodos(JSON.parse(savedTodos));
+      }
+    }
+  }, []);
+
   const saveTodos = (todos: Todo[]) => {
     setTodos(todos);
-    localStorage.setItem("todos", JSON.stringify(todos));
+    if (typeof window !== "undefined") {
+      localStorage.setItem("todos", JSON.stringify(todos));
+    }
   };
 
   const addTodo = () => {
