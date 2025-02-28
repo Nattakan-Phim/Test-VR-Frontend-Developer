@@ -15,7 +15,7 @@ const NavigationBar: React.FC<NavigationBarProps> = ({
       className={`mx-4 p-4 flex items-center justify-between rounded-xl bg-gray-400`}
     >
       {isOpen ? (
-        <Button onClick={toggleSidebar}>Open</Button>
+        <Button onClick={toggleSidebar} variant="contained" >Open</Button>
       ) : (
         <div className="p-5"></div>
       )}

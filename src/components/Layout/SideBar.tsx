@@ -21,10 +21,12 @@ const SideBar: React.FC<SidebarProps> = ({
           isOpen ? "translate-x-0" : "-translate-x-full"
         }`}
       >
-        <div className="flex justify-end px-5">
+        <div className="flex justify-end px-5 py-5">
           {isOpen ? (
             <Button
               onClick={toggleSidebar}
+              variant="contained"
+              
             >
             Close
             </Button>
@@ -47,64 +49,71 @@ const SideBar: React.FC<SidebarProps> = ({
             <h2
               className={`text-lg font-bold`}
             >
-              Sidebar
+              Item 1
             </h2>
             <ul
               className={`m-2 flex flex-col gap-4`}
             >
-              <Link
-                href={"/#"}
+              <Button
+                href={"/"}
                 className="flex items-center gap-2 hover:border-2 rounded-xl hover:border-gray-400"
+                variant="contained"
               >
                 Dashboard
-              </Link>
-              <Link
+              </Button>
+              <Button
                 href={"/#"}
                 className="flex items-center gap-2 hover:border-2 rounded-xl hover:border-gray-400"
+                variant="contained"
               >
                 Document
-              </Link>
-              <Link
+              </Button>
+              <Button
                 href={"/#"}
                 className="flex items-center gap-2 hover:border-2 rounded-xl hover:border-gray-400"
+                variant="contained"
               >
                 management
-              </Link>
-              <Link
+              </Button>
+              <Button
                 href={"/#"}
                 className="flex items-center gap-2 hover:border-2 rounded-xl hover:border-gray-400"
+                variant="contained"
               >
                 about
-              </Link>
+              </Button>
             </ul>
           </div>
           <div className="p-4">
             <h2
               className={`text-lg font-bold`}
             >
-              Sidebar
+              Item 2
             </h2>
             <ul
               className={`m-2 flex flex-col gap-2`}
             >
-              <Link
+              <Button
                 href={"/#"}
                 className="flex items-center gap-2 hover:border-2 rounded-xl hover:border-gray-400"
+                variant="contained"
               >
                 About
-              </Link>
-              <Link
+              </Button>
+              <Button
                 href={"/#"}
                 className="flex items-center gap-2 hover:border-2 rounded-xl hover:border-gray-400"
+                variant="contained"
               >
                 Setting
-              </Link>
-              <Link
+              </Button>
+              <Button
                 href={"/#"}
                 className="flex items-center gap-2 hover:border-2 rounded-xl hover:border-gray-400"
+                variant="contained"
               >
                 Logout
-              </Link>
+              </Button>
             </ul>
           </div>
         </div>
