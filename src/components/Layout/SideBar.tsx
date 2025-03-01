@@ -67,7 +67,7 @@ const SideBar: React.FC<SidebarProps> = ({
               >
                 Movies
               </Button>
-              <Button
+              {/* <Button
                 href={"/#"}
                 className="flex items-center gap-2 hover:border-2 rounded-xl hover:border-gray-400"
                 variant="contained"
@@ -80,7 +80,7 @@ const SideBar: React.FC<SidebarProps> = ({
                 variant="contained"
               >
                 about
-              </Button>
+              </Button> */}
             </ul>
           </div>
         </div>

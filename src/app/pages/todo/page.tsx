@@ -22,6 +22,7 @@ export default function ToDoList() {
   const [newTodo, setNewTodo] = useState<string>("");
   const [editIndex, setEditIndex] = useState<number | null>(null);
   const [editTodo, setEditTodo] = useState<string>("");
+  
 
   useEffect(() => {
     if (typeof window !== "undefined") {
