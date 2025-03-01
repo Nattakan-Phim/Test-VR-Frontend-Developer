@@ -1,5 +1,9 @@
 # Test-VR Project
 
+## Dotenv
+- create env file
+key : NEXT_PUBLIC_API_KEY=2c7b5c963ac6bbb071f90b4d40c1149f
+
 ## Overview
 
 This project is a VR application built with Next.js and React. It includes various components such as a sidebar, a to-do list, and a movie list.
