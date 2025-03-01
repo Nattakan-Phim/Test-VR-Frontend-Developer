@@ -1,12 +1,13 @@
-import React from 'react'
-import ToDoList from './pages/todo/page'
+"use client"
+import { useEffect } from 'react'
+import { useRouter } from 'next/navigation'
 
 const Homepage = () => {
-  return (
-    <>
-      <ToDoList></ToDoList>
-    </>
-  )
+  const router = useRouter()
+
+  useEffect(() => {
+    router.push('/pages/todo')
+  }, [router])
 }
 
 export default Homepage
