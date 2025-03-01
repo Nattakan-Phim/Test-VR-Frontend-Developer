@@ -1,8 +1,8 @@
 # Test-VR Project
 
 ## Dotenv
-- create env file
-key : NEXT_PUBLIC_API_KEY=2c7b5c963ac6bbb071f90b4d40c1149f
+- Create env file
+Key : NEXT_PUBLIC_API_KEY=2c7b5c963ac6bbb071f90b4d40c1149f
 
 ## Overview
 
@@ -11,7 +11,7 @@ This project is a VR application built with Next.js and React. It includes vario
 ## Prerequisites
 
 Before you begin, ensure you have met the following requirements:
-- You have installed Node.js and npm.
+- You have installed Node.js and npm or Bun installed.
 - You have a code editor such as VSCode.
 
 ## Getting Started
@@ -33,6 +33,7 @@ To get a local copy up and running, follow these steps:
 3. Install the dependencies:
     ```bash
     npm install
+    bun install
     ```
 
 ### Running the Project
@@ -40,6 +41,7 @@ To get a local copy up and running, follow these steps:
 1. Start the development server:
     ```bash
     npm run dev
+    bun run dev
     ```
 
 2. Open your browser and navigate to:
@@ -52,6 +54,7 @@ To get a local copy up and running, follow these steps:
 To create a production build, run:
 ```bash
 npm run build
+bun run build
 ```
 
 ### Running the Production Build
@@ -59,6 +62,7 @@ npm run build
 After building the project, you can start the production server with:
 ```bash
 npm start
+bun start
 ```
 
 ## Project Structure
