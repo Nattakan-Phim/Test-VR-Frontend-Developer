@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { Movie } from "./type";
 
+
 const container = () => {
   const [movies, setMovies] = useState<Movie[]>([]);
   const [searchTerm, setSearchTerm] = useState("");
@@ -36,14 +37,19 @@ const container = () => {
     const fetchMovies = async () => {
       try {
         const response = await fetch(
-          "https://api.themoviedb.org/3/search/movie?api_key=2c7b5c963ac6bbb071f90b4d40c1149f&query=a"
+          `https://api.themoviedb.org/3/search/movie?api_key=${process.env.NEXT_PUBLIC_API_KEY}&query=a`
         );
         const data = await response.json();
-        const moviesWithPrice = data.results.map((movie: Movie) => ({
-          ...movie,
-          price: Math.floor(Math.random() * 20) + 5, // Random price between 5 and 25
-        }));
-        setMovies(moviesWithPrice);
+        console.log("data", data);
+        if (data.results) {
+          const moviesWithPrice = data.results.map((movie: Movie) => ({
+            ...movie,
+            price: Math.floor(Math.random() * 20) + 5, // Random price between 5 and 25
+          }));
+          setMovies(moviesWithPrice);
+        } else {
+          console.error("No results found in the response data.");
+        }
       } catch (error) {
         console.error("Error fetching movies:", error);
       }
@@ -77,7 +83,6 @@ const container = () => {
   };
 
   const { totalItems, discount, finalPrice } = calculateCartDetails();
-
 
   return {
     calculateCartDetails,
